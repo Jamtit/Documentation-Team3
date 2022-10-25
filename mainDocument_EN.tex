@@ -1,0 +1,237 @@
+% Kompiuterijos katedros ir kibernetinio saugumo laboratorijos šablonas
+% Template of Department of Computer Science II or cybersecurity laboratory
+% Versija 1.3 2021 m. birželis [ March, 2015]
+
+\documentclass[a4paper,12pt,fleqn]{article}
+\input{allPacks}
+
+\newtoggle{inLithuanian}
+ %If the report is in Lithuanian, it is set to true; otherwise, change to false
+\settoggle{inLithuanian}{false}
+
+%create file preface.tex for the preface text
+%if preface is needed set to true
+\newtoggle{needPreface}
+\settoggle{needPreface}{false}
+
+\newtoggle{signaturesOnTitlePage}
+\settoggle{signaturesOnTitlePage}{false}
+
+\input{macros}
+
+\begin{document}
+ % #1 -report type, #2 - title, #3-7 students, #8 - supervisor
+ \depttitlepage{Information Technology II year}{Requirements Specification\\{\small Software Engineering Project | Team 3}}{Titas Majauskas}
+ {Dinas Majauskas}{Jomantas Užusinas}{Vilius Juknevičius}{Sakalas Stasiulis}% students 2-5
+ {Virgilijus Krinickij, Gediminas Rimša}
+
+\tableofcontents
+
+
+%keywords and notations if needed
+\sectionWithoutNumber{Terminology}
+{keywords}
+{\begin{center}
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{|ll|l|ll}
+        \cline{1-3}
+        \multicolumn{2}{|l|}{\textit{User}}     & \textbf{The engineer that is using the system}                                                                                                                     &  &  \\ \cline{1-3}
+        \multicolumn{2}{|l|}{\textit{Customer}} & \textbf{\begin{tabular}[c]{@{}l@{}}The person, with whose roof data the engineers will be working, \\ and who will receive the end result of the whole system\end{tabular}} &  &  \\ \cline{1-3}
+    \end{tabular}
+    \end{table}
+\end{center}}
+
+\sectionWithoutNumber{Team Distribution}
+{}
+{\begin{center}
+   \begin{table}[h]
+   \centering
+    \begin{tabular}{clcllll}
+        \multicolumn{3}{l}{}                             &        &        &        &        \\ \hline
+        \multicolumn{2}{|c|}{Team Leader} & \multicolumn{5}{c|}{\textbf{Jomantas Užusinas}}  \\ \hline
+        \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Vilius Juknevičius}} \\ \hline
+        \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Dinas Majauskas}}    \\ \hline
+        \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Titas Majauskas}}    \\ \hline
+        \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Sakalas Stasiulis}}  \\ \hline
+    \end{tabular}
+    \end{table}
+\end{center}}
+
+
+
+ %the main part
+\newpage
+\section{Purpose and Overview}
+
+\subsection{Purpose of The Document}
+
+This requirement specification will mainly act as a guideline for Team 3 on the common goal of our team and the idea of the project. It will be available for the Team 3, Team Leaders from other teams and the Project Leader to grasp the understanding of our team‘s work and future goals. 
+
+\subsection{Purpose of The Team}
+Our main goal as a team is to create an addition to the main system of our project which will optimize the placement of solar panels on our customer‘s roof by following requirements specified by the manufacturer of said panels. 
+
+\subsection{High-Level Overview}
+We, as the developers of this functionality, are creating it with the intention to ease the physical labour of our clients. The functionality will be provided in a form of a high-level overview from team to team: 
+
+\begin{itemize}
+    \item The position of the panels will be calculated according to the data received from Team 2 - the panels will not obstruct paths stated in fire code, thus they will not be placed on certain parts of the roof. Besides fire code regulated paths, other non-placeable areas will include: chimneys, skylights, etc.
+    
+    \item The algorithm will also maximize the amount of panels that can be placed on a roof. Made calculations and generated data will be delivered to Team 4 and Team 5 to use according to their requirements. 
+\end{itemize}
+
+\newpage
+
+\section{Functional Requirements}
+
+\subsection{High Priority}
+\begin{itemize}
+    \item The system, using given data, will automatically calculate the best solar panel distribution on the roof surface leaving optimal gaps between the items.
+    
+    \item The system will identify chimneys, skylights or other obstacles on the roof and will not mark them as solar panel installation friendly parts of the roof. 
+    
+    \item The algorithm will try to maximize the amount of solar panels on the roof.
+\end{itemize}
+
+\subsection{Low Priority}
+\begin{itemize}
+    \item Have some user-friendly interface which will help the user of this system to manipulate data and receive certain results.  
+\end{itemize}
+
+\newpage
+
+\section{Quality Attributes}
+\begin{itemize}
+    \item \textbf{Availability:}
+    \begin{itemize}
+        \item The functionality of our area will be available as a library to use in the main software, which will come in a form of a desktop app.
+        
+        \item The library will be accessible through Python package installer (pip)
+    \end{itemize}
+    
+    \item \textbf{Usability:}
+    \begin{itemize}
+        \item The functionality created by our team will contain user-friendly, straight-forward approach. 
+        
+        \item The necessary data will be uploaded onto the system prior to the usage of our functionality. Thus, relieving the client of redundant work with files and data. 
+        
+        \item After our client is done with mandatory modifications of said data, it will be automatically available for future processes, functionalities. 
+    \end{itemize}
+    
+    \item \textbf{Compatibility:}
+    \begin{itemize}
+        \item Team 3‘s part of the system should be compatible with other teams:
+        \begin{itemize}
+            \item Team 2’s data will be compatible with the system. 
+            \item Team 4 can receive processed data from Team 3.
+        \end{itemize}
+        \item Data received from other teams should work with our system and information generated by our algorithms should be reusable by our colleagues. 
+    \end{itemize}
+    
+    \item \textbf{Reliability:}
+    \begin{itemize}
+        \item System should work if put under a lot of stress:
+        \begin{itemize}
+            \item The system will not stop working when there is >2 users. 
+            \item If >1 file is uploaded in the system, it will still be working. 
+        \end{itemize}
+        
+        \item Wrong inputs, corrupted data should stop the system from working, but not make it inoperable entirely.
+    \end{itemize}
+    
+    \item \textbf{Security:}
+    \begin{itemize}
+        \item Users will be working separately, meaning that changes or inputs of separate users working with the same software will not be visible to the other user. 
+        \item Personal information through received data will not be accessible to unauthorized individuals. 
+    \end{itemize}
+\end{itemize}
+
+\newpage
+\section{Future Plans}
+As it is a understandably complicated project, our team decided that we will distribute our work in said versions: 
+
+\begin{itemize}
+    \item \textbf{09.05 - 09.09:}
+    \begin{itemize}
+        \item Introduction to the project
+    \end{itemize}
+    
+    \item \textbf{09.12 - 09.16:}
+    \begin{itemize}
+        \item Team formation
+        \item Team leader selection
+        \item Project area selection
+        \item Creation of Gitlab repository
+    \end{itemize}
+    
+    \item \textbf{09.19 - 09.23:}
+    \begin{itemize}
+        \item Creation of requirements specification draft
+        \item Team meeting to understand the project area
+        \item Move the group repository from Gitlab to Github
+    \end{itemize}
+    
+    \item \textbf{09.26 - 09-30:}
+    \begin{itemize}
+        \item Learning the basics of Python
+        \item Team repository in group's Github
+        \item Fix up requirements specification draft
+    \end{itemize}
+    
+    \item \textbf{10.03 - 10.07:}
+    \begin{itemize}
+        \item Creation of separate MS Teams channel for the team
+        \item Finishing the requirements specification draft
+        \item Try to move requirements specification draft from MS Word to Overleaf (Latex)
+    \end{itemize}
+    
+    \item \textbf{10.10 - 10.14:}
+    \begin{itemize}
+        \item Attempt to build a basic data manipulation algorithm
+    \end{itemize}
+    
+    \item \textbf{10.17 - 10.21:}
+    \begin{itemize}
+        \item Algorithm try-outs with mock-up data
+    \end{itemize}
+    
+    \item \textbf{10.24 - 10.28:}
+    \begin{itemize}
+        \item Test the algorithm with the roof data received from Team 1 and Team 2
+    \end{itemize}
+    
+    \item \textbf{10.31 - 11.04:}
+    \begin{itemize}
+        \item Polishing the algorithm
+        \item Search for bugs
+    \end{itemize}
+    
+    \item \textbf{11.07 - 11.11:}
+    \begin{itemize}
+        \item Testing algorithms with different types of roof faces.
+    \end{itemize}
+    
+    \item \textbf{11.14 - 11.18:}
+    \begin{itemize}
+        \item Adding the ability to mark the solar panels on the roof
+    \end{itemize}
+    
+    \item \textbf{11.21 - 11.25:}
+    \begin{itemize}
+        \item Algorithms accurately calculates the placement of the solar panels on the roof
+    \end{itemize}
+    
+    \item \textbf{11.28 - 12.02:}
+    \begin{itemize}
+        \item Algorithm to maximize the solar panels on the roof is implemented
+    \end{itemize}
+    
+    \item \textbf{12.05 - 12.09:}
+    \begin{itemize}
+        \item Last tests of the system before publishing it
+    \end{itemize}
+\end{itemize}
+ %Conclusions section
+
+
+\end{document}
