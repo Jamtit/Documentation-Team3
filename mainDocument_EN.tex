@@ -57,9 +57,9 @@
     \begin{tabular}{clcllll}
         \multicolumn{3}{l}{}                             &        &        &        &        \\ \hline
         \multicolumn{2}{|c|}{Team Leader} & \multicolumn{5}{c|}{\textbf{Jomantas Užusinas}}  \\ \hline
-        \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Vilius Juknevičius}} \\ \hline
+        \multicolumn{2}{|c|}{Main Developer}   & \multicolumn{5}{c|}{\textbf{Titas Majauskas}}    \\ \hline
         \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Dinas Majauskas}}    \\ \hline
-        \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Titas Majauskas}}    \\ \hline
+        \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Vilius Juknevičius}} \\ \hline
         \multicolumn{2}{|c|}{Developer}   & \multicolumn{5}{c|}{\textbf{Sakalas Stasiulis}}  \\ \hline
     \end{tabular}
     \end{table}
@@ -78,7 +78,7 @@ Our main goal as a team is to create an addition to the main system of our proje
 We, as the developers of this functionality, are creating it with the intention to ease the physical labour of our clients. The functionality will be provided in a form of a high-level overview from team to team: 
 
 \begin{itemize}
-    \item The position of the panels will be calculated according to the data received from Team 2 - the panels will not obstruct paths stated in fire code, thus they will not be placed on certain parts of the roof. Besides fire code regulated paths, other non-placeable areas will include: chimneys, skylights, etc.
+    \item The position of the panels will be calculated according to the data received from Team 1 - the panels will not obstruct paths stated in fire code, thus they will not be placed on certain parts of the roof. Besides fire code regulated paths, other non-placeable areas will include: chimneys, skylights, etc.
     
     \item The algorithm will also maximize the amount of panels that can be placed on a roof. Made calculations and generated data will be delivered to Team 4 and Team 5 to use according to their requirements. 
 \end{itemize}
@@ -89,11 +89,13 @@ We, as the developers of this functionality, are creating it with the intention 
 
 \subsection{High Priority}
 \begin{itemize}
-    \item The system, using given data, will automatically calculate the best solar panel distribution on the roof surface leaving optimal gaps between the items.
+    \item The system, using given data, will calculate the best solar panel distribution on the roof surface leaving optimal gaps between the items.
     
     \item The system will identify chimneys, skylights or other obstacles on the roof and will not mark them as solar panel installation friendly parts of the roof. 
     
     \item The algorithm will try to maximize the amount of solar panels on the roof.
+    
+    \item Our solution will produce a JSON file with solar panel coordinates, which will be used for virtualization and further data manipulation.
 \end{itemize}
 
 \subsection{Low Priority}
@@ -218,28 +220,45 @@ As it is a understandably complicated project, our team decided that we will dis
         \item Writing algorithm to change coordinates of the roof according to limitations
         \item Algorithm to calculate the area of roof without changed coordinates and roof with changed coordinates
         \item Algorithm, that calculates the maximum amount of possible solar panels on the roof
-        \item Drawing the model of the roof with solar panels on it.
+        \item Drawing the model of the roof with solar panels on it
     \end{itemize}
     
     \item \textbf{11.14 - 11.18:}
     \begin{itemize}
-        \item Adding the ability to mark the solar panels on the roof
+        \item Generated 3D model of 2 roofs
     \end{itemize}
     
     \item \textbf{11.21 - 11.25:}
     \begin{itemize}
-        \item Algorithms accurately calculates the placement of the solar panels on the roof
+        \item Manually place the first solar panel on one of the roofs
     \end{itemize}
     
     \item \textbf{11.28 - 12.02:}
     \begin{itemize}
-        \item Algorithm to maximize the solar panels on the roof is implemented
+        \item Continued to place the solar panels onto the same roof to maximize the amount of said items
     \end{itemize}
     
     \item \textbf{12.05 - 12.09:}
     \begin{itemize}
-        \item Last tests of the system before publishing it
+        \item Finished the solar panel placement on the first roof
+        \item Loaded the second roof into the 3D form
     \end{itemize}
+    
+    \item \textbf{12.12 - 12.16:}
+    \begin{itemize}
+        \item Started placing the solar panels onto the second roof
+        \item Finished placing the panels
+        \item Updated the documentations
+    \end{itemize}
+    
+    \item \textbf{12.19 - 12.20:}
+    \begin{itemize}
+        \item Created functionality to produce a JSON file with solar panel coordinates in it
+        \item Helped Area 5 to implement and visualize our solution
+        \item Pushed the updated version of our documents to Github
+    \end{itemize}
+    
+    
 \end{itemize}
 Overleaf read only version - \textit{\href{https://www.overleaf.com/read/yfwwkrcvhxfk}{click here}}\\
 Github of this documentation - \textit{\href{https://github.com/Jamtit/Documentation-Team3}{click here}}
